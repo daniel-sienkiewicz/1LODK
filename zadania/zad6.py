@@ -1,0 +1,7 @@
+# Strona ww z raportem
+
+def main():
+
+
+if __name__ == '__main__':
+    main()
