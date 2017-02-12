@@ -12,56 +12,60 @@ class Auto(object):
         self.model = model
         self.rokProdukcji = rokProdukcji
 
-def pokazBaze(bazaSamochodow):
-    t = PrettyTable(['ID', 'Marka', 'Model', 'Rok Produkcji'])
+    @staticmethod
+    def pokazBaze(bazaSamochodow):
+        t = PrettyTable(['ID', 'Marka', 'Model', 'Rok Produkcji'])
 
-    for auto in bazaSamochodow:
-        t.add_row([auto.id, auto.marka, auto.model, auto.rokProdukcji])
+        for auto in bazaSamochodow:
+            t.add_row([auto.id, auto.marka, auto.model, auto.rokProdukcji])
 
-    print t
+        print t
 
-def dodajAuto(auto, baza):
-    auto.id = Auto.count
-    baza.append(auto)
-    Auto.count += 1
+    @staticmethod
+    def dodajAuto(auto, baza):
+        auto.id = Auto.count
+        baza.append(auto)
+        Auto.count += 1
 
-def szukajAuto(baza, klucz):
-    wynik = []
-    for auto in baza:
-        if auto.model == klucz or auto.marka == klucz or auto.rokProdukcji == klucz:
-            wynik.append(auto)
+    @staticmethod
+    def szukajAuto(baza, klucz):
+        wynik = []
+        for auto in baza:
+            if auto.model == klucz or auto.marka == klucz or auto.rokProdukcji == klucz:
+                wynik.append(auto)
 
-    return wynik
+        return wynik
 
-def usunAuto(baza, klucz):
-    for auto in baza:
-        if auto.model == klucz or auto.marka == klucz or auto.rokProdukcji == klucz:
-            baza.remove(auto)
-            Auto.count -= 1
+    @staticmethod
+    def usunAuto(baza, klucz):
+        for auto in baza:
+            if auto.model == klucz or auto.marka == klucz or auto.rokProdukcji == klucz:
+                baza.remove(auto)
+                Auto.count -= 1
 
 def main():
     bazaSamochodow = []
     mojeAuto = Auto("Audi", "A3", 2001)
-    dodajAuto(mojeAuto, bazaSamochodow)
+    Auto.dodajAuto(mojeAuto, bazaSamochodow)
 
     mojeAuto2 = Auto("Audi", "80", 1991)
-    dodajAuto(mojeAuto2, bazaSamochodow)
+    Auto.dodajAuto(mojeAuto2, bazaSamochodow)
 
     print "Cala baza:"
-    pokazBaze(bazaSamochodow)
+    Auto.pokazBaze(bazaSamochodow)
 
-    wynik = szukajAuto(bazaSamochodow, "80")
+    wynik = Auto.szukajAuto(bazaSamochodow, "80")
 
     if wynik:
         print "\nSzukane Auta:"
-        pokazBaze(wynik)
+        Auto.pokazBaze(wynik)
     else:
         print "\nNie znaleziono szukanego auta"
 
-    usunAuto(bazaSamochodow, "A3")
+    Auto.usunAuto(bazaSamochodow, "A3")
 
     print "\nBaza po usunieciu:"
-    pokazBaze(bazaSamochodow)
+    Auto.pokazBaze(bazaSamochodow)
 
 if __name__ == '__main__':
     main()
