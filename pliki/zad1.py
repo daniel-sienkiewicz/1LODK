@@ -10,10 +10,10 @@ def main():
     tab = []
     with open("data", "r") as f:
         tab = f.read().split(' ')
-    print "Tablica przed posortowaniem: {0}".format(tab)
+    print("Tablica przed posortowaniem: {0}".format(tab))
     sortuj(tab)
-    print "Tablica po posortowaniu:     {0}".format(tab)
-    print "Tablica po posortowaniu:     {0}".format(sorted(tab, key=int))
+    print("Tablica po posortowaniu:     {0}".format(tab))
+    print("Tablica po posortowaniu:     {0}".format(sorted(tab, key=int)))
 
 if __name__ == '__main__':
     main()

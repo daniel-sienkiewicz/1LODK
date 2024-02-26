@@ -6,7 +6,6 @@ class Auto(object):
     """A simple class"""
 
     count = 0
-
     def __init__(self, marka="", model="", rokProdukcji=""):
         self.marka = marka
         self.model = model
@@ -19,7 +18,7 @@ class Auto(object):
         for auto in bazaSamochodow:
             t.add_row([auto.id, auto.marka, auto.model, auto.rokProdukcji])
 
-        print t
+        print(t)
 
     @staticmethod
     def dodajAuto(auto, baza):
@@ -51,20 +50,20 @@ def main():
     mojeAuto2 = Auto("Audi", "80", 1991)
     Auto.dodajAuto(mojeAuto2, bazaSamochodow)
 
-    print "Cala baza:"
+    print("Cala baza:")
     Auto.pokazBaze(bazaSamochodow)
 
     wynik = Auto.szukajAuto(bazaSamochodow, "80")
 
     if wynik:
-        print "\nSzukane Auta:"
+        print("\nSzukane Auta:")
         Auto.pokazBaze(wynik)
     else:
-        print "\nNie znaleziono szukanego auta"
+        print("\nNie znaleziono szukanego auta")
 
     Auto.usunAuto(bazaSamochodow, "A3")
 
-    print "\nBaza po usunieciu:"
+    print("\nBaza po usunieciu:")
     Auto.pokazBaze(bazaSamochodow)
 
 if __name__ == '__main__':

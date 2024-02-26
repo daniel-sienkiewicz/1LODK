@@ -9,9 +9,7 @@ def fib(n):
 		a, b = b, a + b
 	return result
 
-
 f100 = fib(100)
 
-print f100
-print fib.__doc__
-
+print(f100)
+print(fib.__doc__)

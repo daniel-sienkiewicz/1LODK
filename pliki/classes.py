@@ -10,8 +10,8 @@ class MyClass(object):
 		return self.anytext
 
 c = MyClass("text")
-print c.i
+print(c.i)
 c.i = 20
 c.j = 30
-print c.i, c.j
-print c.f()
+print(c.i, c.j)
+print(c.f())

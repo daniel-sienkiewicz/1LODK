@@ -3,4 +3,4 @@ def func(param):
 
 a = ['xyz']
 func(a)
-print a
+print(a)
